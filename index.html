@@ -1,1 +1,58 @@
-<!DOCTYPE html><html lang=""><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" href="favicon.ico"><title>test</title><link href="assets/css/app.4f786954.css" rel="preload" as="style"><link href="assets/js/app.6837bae6.js" rel="preload" as="script"><link href="assets/js/chunk-vendors.c366db43.js" rel="preload" as="script"><link href="assets/css/app.4f786954.css" rel="stylesheet"></head><body><noscript><strong>We're sorry but test doesn't work properly without JavaScript enabled. Please enable it to continue.</strong></noscript><div id="app"></div><script src="assets/js/chunk-vendors.c366db43.js"></script><script src="assets/js/app.6837bae6.js"></script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     body { margin: 0; padding: 20px; }
+
+    </style>    
+</head>
+<body>
+    <div>
+         <span>房屋编码:</span><span id="bian"></span>
+    </div>
+    <div style="margin-top: 20px;">
+        <span>房屋安全等级:</span ><span id="level"></span>
+    </div>
+    <div style="margin-top: 20px;">
+        <span>房屋风险值:</span><span id="risk"></span>
+    </div>
+    <div style="margin-top: 20px;">
+        <span>房屋风险描述:</span><span id="describe"></span>
+    </div>
+
+<script>
+function getUrlParam(name) {
+    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    return r ? unescape(r[2]) : null;
+}
+
+var urlParam = getUrlParam("id");
+var urllevel = getUrlParam("level");
+var urlrisk = getUrlParam("risk");
+var urldescribe = getUrlParam("describe");
+
+function fuzhi() {
+    var elements = {
+        "bian": urlParam,
+        "level": urllevel,
+        "risk": urlrisk,
+        "describe": urldescribe
+    };
+
+    for (var id in elements) {
+        var elem = document.getElementById(id);
+        if (elem) {
+            elem.innerHTML = elements[id];
+        }
+    }
+}
+
+fuzhi();
+
+</script>
+</body>
+</html>
